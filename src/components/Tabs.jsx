@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 
-
 function Tabs() {
-  
   return (
-    <h1 className="border-2 border-primary-blue px-5 py-7 flex justify-center items-center gap-8 mt-10">
-      <p className="border-b-4 border-[#ff0200]">1. company Information</p>
-      <p>2. Directors / Shareholders</p>
-      <p>3. Minutes Company</p>
-    </h1>
+    <div className="border-2 border-primary-blue px-3 sm:px-5 py-4 sm:py-7 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mt-6 sm:mt-10">
+      <p className="text-sm sm:text-base border-b-4 border-[#ff0200] px-2 sm:px-4 py-1 sm:py-2">1. Company Information</p>
+      <p className="text-sm sm:text-base px-2 sm:px-4 py-1 sm:py-2">2. Directors / Shareholders</p>
+      <p className="text-sm sm:text-base px-2 sm:px-4 py-1 sm:py-2">3. Minutes Company</p>
+    </div>
   );
 }
 

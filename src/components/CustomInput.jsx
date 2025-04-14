@@ -2,7 +2,6 @@ import React, { useId, useState } from "react";
 import { cn } from "../utils/cn";
 import { MagnifyingGlassIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 
-// Sample suburb data
 const suburbData = [
   "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Hobart", "Darwin", "Canberra",
   "Newcastle", "Wollongong", "Gold Coast", "Sunshine Coast", "Geelong", "Townsville", "Cairns"
@@ -17,7 +16,7 @@ function CustomInput({
   const isRadio = type === "radio";
 
   return (
-    <div className={`flex items-center gap-2 ${!isRadio ? "w-full" : ""}`}>
+    <div className={`flex flex-col sm:flex-row sm:items-center gap-2 ${!isRadio ? "w-full" : ""}`}>
       {isRadio ? (
         <>
           <input
@@ -32,12 +31,12 @@ function CustomInput({
         </>
       ) : (
         <>
-          <label htmlFor={uniqueId} className="text-sm text-gray-700 min-w-[120px]">{label}</label>
+          <label htmlFor={uniqueId} className="text-sm text-gray-700 sm:min-w-[120px]">{label}</label>
           <input
             id={uniqueId}
             type={type}
             className={`${className || ""} ${
-              isRadio ? "w-4 h-4" : "w-full"
+              isRadio ? "w-4 h-4" : "w-full text-sm sm:text-base"
             }`}
             {...ipProps}
           />
@@ -64,14 +63,14 @@ export const SuburbInput = ({ value, onChange }) => {
   };
 
   return (
-    <div className="flex items-center gap-2 w-full">
-      <div className="flex items-center gap-2 min-w-[120px]">
+    <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:min-w-[120px]">
         <label className="text-sm text-gray-700">Suburb</label>
-        <span className="text-sm text-gray-500">(Type few characters and select)</span>
+        <span className="text-xs sm:text-sm text-gray-500">(Type few characters and select)</span>
       </div>
       <div className="relative w-full">
         <div
-          className="flex items-center justify-between w-full border focus:outline-none focus:ring-2 focus:ring-blue-300 px-4 py-2 shadow-sm text-gray-700 cursor-pointer"
+          className="flex items-center justify-between w-full border focus:outline-none focus:ring-2 focus:ring-blue-300 px-4 py-2 shadow-sm text-gray-700 cursor-pointer text-sm sm:text-base"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span>{selectedSuburb || "Select suburb"}</span>
@@ -86,7 +85,7 @@ export const SuburbInput = ({ value, onChange }) => {
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm sm:text-base"
                   placeholder="Search suburb..."
                   onClick={(e) => e.stopPropagation()}
                 />
@@ -98,14 +97,14 @@ export const SuburbInput = ({ value, onChange }) => {
                 filteredSuburbs.map((suburb) => (
                   <div
                     key={suburb}
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm sm:text-base"
                     onClick={() => handleSuburbSelect(suburb)}
                   >
                     {suburb}
                   </div>
                 ))
               ) : (
-                <div className="px-4 py-2 text-gray-500">No suburbs found</div>
+                <div className="px-4 py-2 text-gray-500 text-sm sm:text-base">No suburbs found</div>
               )}
             </div>
           </div>

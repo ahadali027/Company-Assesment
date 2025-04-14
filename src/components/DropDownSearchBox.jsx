@@ -64,8 +64,8 @@ function SearchableDropdown({
   };
 
   return (
-    <div className="mb-4 flex w-full items-center gap-10 " ref={dropdownRef}>
-      <label className="block text-gray-700 text-sm font-medium mb-1">
+    <div className="mb-4 flex flex-col sm:flex-row w-full items-start sm:items-center gap-2 sm:gap-4" ref={dropdownRef}>
+      <label className="block text-gray-700 text-sm sm:text-base font-medium">
         {label}
       </label>
       <div className="relative w-full">
@@ -74,14 +74,14 @@ function SearchableDropdown({
           onClick={toggleDropdown}
         >
           <div className="flex items-center justify-between p-2">
-            <span className="text-gray-500">{searchValue }</span>
+            <span className="text-sm sm:text-base text-gray-500">{searchValue}</span>
             <button
               type="button"
               className="text-gray-400"
               onClick={toggleDropdown}
             >
               <svg
-                className={`h-5 w-5 transition-transform ${
+                className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform ${
                   isOpen ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -104,25 +104,25 @@ function SearchableDropdown({
             <div className="relative p-2">
               <input
                 type="text"
-                className="w-full border border-gray-300 rounded-md py-2 px-3 pr-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border border-gray-300 rounded-md py-1.5 sm:py-2 px-2 sm:px-3 pr-8 text-sm sm:text-base focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search..."
                 value={searchValue}
                 onChange={handleInputChange}
                 autoFocus
               />
-              <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                <SearchIcon className="h-5 w-5 text-gray-400" />
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <SearchIcon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
               </div>
             </div>
 
             <div className="max-h-60 overflow-auto p-2 bg-gray-50">
               {searchValue.length < minSearchLength ? (
-                <div className="py-2 px-3 text-gray-500">{placeholder}</div>
+                <div className="py-2 px-2 sm:px-3 text-sm sm:text-base text-gray-500">{placeholder}</div>
               ) : options.length > 0 ? (
                 options.map((option) => (
                   <div
                     key={option.value}
-                    className="py-2 px-3 hover:bg-gray-100 cursor-pointer rounded"
+                    className="py-2 px-2 sm:px-3 hover:bg-gray-100 cursor-pointer rounded text-sm sm:text-base"
                     onClick={() => {
                       setSearchValue(option.label);
                       if (onChange) onChange(option.value);
@@ -133,7 +133,7 @@ function SearchableDropdown({
                   </div>
                 ))
               ) : (
-                <div className="py-2 px-3 text-gray-500">No results found</div>
+                <div className="py-2 px-2 sm:px-3 text-sm sm:text-base text-gray-500">No results found</div>
               )}
             </div>
           </div>
@@ -170,8 +170,8 @@ export default function SearchableDropdownExample() {
   };
 
   return (
-    <div className="">
-      <div className=" max-w-md ">
+    <div className="w-full">
+      <div className="max-w-md mx-auto">
         <SearchableDropdown
           label="Suburb"
           minSearchLength={3}
