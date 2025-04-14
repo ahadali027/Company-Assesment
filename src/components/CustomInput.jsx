@@ -67,7 +67,7 @@ export const SuburbInput = ({ value, onChange }) => {
     <div className="flex items-center gap-2 w-full">
       <div className="flex items-center gap-2 min-w-[120px]">
         <label className="text-sm text-gray-700">Suburb</label>
-        <span className="text-sm text-gray-500"></span>
+        <span className="text-sm text-gray-500">(Type few characters and select)</span>
       </div>
       <div className="relative w-full">
         <div

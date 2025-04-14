@@ -452,14 +452,14 @@ function Form() {
               <p className="text-sm text-[#515151] max-w-2xl mt-2">
                 Where the company does not occupy the premises where its
                 registered office is located, the occupier of the premises must
-                agree in writing to have the company’s registered office located
+                agree in writing to have the company's registered office located
                 in the premises.
               </p>
             </div>
           </div>
         </div>
         <div className="mt-8">
-          <FormHeader heading="Will the Company’s registered Office be the principal place of business in Australia?" />
+          <FormHeader heading="Will the Company's registered Office be the principal place of business in Australia?" />
           <div className="grid grid-cols-2 gap-4 items-center">
             <div className="flex flex-col mt-3 w-full">
               <CustomInput
